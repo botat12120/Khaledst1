@@ -5,10 +5,10 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 
     // Send fake reply message with serial number
     const sn = '*جـاًر تـجـهيز الـقـائـمـه🛰️...*'; // replace with the actual serial number
-    conn.fakeReply(m.chat, sn, '0@s.whatsapp.net', 'مرحبا بك👋🏻, في بوت السلطان', 'status@broadcast');
+    conn.fakeReply(m.chat, sn, '0@s.whatsapp.net', 'مرحبا بك👋🏻, في بوت ابوهايف:♡', 'status@broadcast');
 
     // Prepare the image
-    var joanimiimg = await prepareWAMessageMedia({ image: { url: 'https://telegra.ph/file/ec15edb7e6568daafc093.png' } }, { upload: conn.waUploadToServer });
+    var joanimiimg = await prepareWAMessageMedia({ image: { url: 'https://telegra.ph/file/9ea7c13e92000839267ab.jpg' } }, { upload: conn.waUploadToServer });
 
     // Create the interactive message with the image
     const interactiveMessage = {
