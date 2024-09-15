@@ -154,32 +154,33 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
                                         id: '.عروض'
                                     },
                                     {
-                                        header: 'تقيم البوت⭐',
-                                        title: 'طـلب تقـيم🌟',
-                                        description: '',
-                                        id: '.تقيم'
-                                    }
-                                ]
-                            }
-                        ]
-                    }),
-                    messageParamsJson: ''
-                }
+                          description: '',
+                          id: '.الاستخدام'
+                        },
+                       {
+                          header: 'ابلاغ او ارسال رساله للمطور💭',
+                          title: 'طـلـب ابـلاغ📨',
+                          description: '',
+                          id: '.بلاغ'
+                        },
+                        {
+                          header: '🍷لتقييم البوت🍷',
+                          title: '♡تقييم البوت♡',
+                          description: '',
+                          id: '.تقيم'
+                        }
+                      ]
+                    }
+                  ]
+                }),
+                messageParamsJson: ''
+              }
             ]
+          }
         }
-    };
-
-    // Generate the message
-    let msg = generateWAMessageFromContent(m.chat, {
-        viewOnceMessage: {
-            message: {
-                interactiveMessage,
-            },
-        },
-    }, { userJid: conn.user.jid, quoted: m });
-
-    // Send the message
-    conn.relayMessage(m.chat, msg.message, { messageId: msg.key.id });
+      }
+    }
+  }, {});
 }
 
 handler.help = ['info'];
