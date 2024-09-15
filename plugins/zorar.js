@@ -21,6 +21,10 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
         footer: {
             text: `تم صنع هذا البوت بواسطه ابوهايف:♡ يمنع سب البوت والبوت يعمل فقط في المجموعات وشكرا لك علي استخدام البوت\n\n\n© Bot by Abu Haif`
         },
+        media: {
+            media: joanimiimg, // Add the prepared image here
+            mediaType: 'image' // Specify the type of media
+        },
         nativeFlowMessage: {
             buttons: [
                 {
