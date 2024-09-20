@@ -75,6 +75,6 @@ handler.before = async (m, { conn }) => {
 
 handler.help = ['ayta'].map(v => v + ' *surah*')
 handler.tags = ['islam']
-handler.command = /^ايات|أیات|ايه|اية|أية|آية|آيه$/i;
+handler.command = /^سوره$/i;
 
 export default handler;
