@@ -3,7 +3,7 @@ import { sticker, addExif } from '../lib/sticker.js'
 import { Sticker } from 'wa-sticker-formatter'
 
 let handler = async (m, { conn, text, args, usedPrefix, command }) => {
-  if (!text) throw `*[❗] أين النص؟*\n\n*—◉ المثال:*\n*◉ ${usedPrefix + command} دارك مان*`
+  if (!text) throw `*[❗] أين النص؟*\n\n*—◉ المثال:*\n*◉ ${usedPrefix + command} باتشيرا*`
   
   let teks = encodeURI(text)
 
