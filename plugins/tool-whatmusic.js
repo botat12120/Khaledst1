@@ -70,7 +70,7 @@ instagram.com/noureddine_ouafy
 };
 verline.help = ["lirik"]
 verline.tags = ["internet"];
-verline.command = /^كلمات-اغنيه$/i;
+verline.command = /^عنوان_الاغنيه$/i;
 export default verline;
 async function getLyrics(url) {
     const response = await fetch("https://files.xianqiao.wang/" + url);
