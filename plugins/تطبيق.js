@@ -1,6 +1,7 @@
+
 import {search, download} from 'aptoide-scraper';
 const handler = async (m, {conn, usedPrefix: prefix, command, text}) => {
- if (!text) throw `*📥╎اكـتـب اسـم تـطـبـيـق لـتـنـزيـلـه🖇️*`;
+ if (!text) throw `*֎╎اكـتـب اسـم تـطـبـيـق لـتـنـزيـلـه❤️‍🩹*`;
   try {    
     const searchA = await search(text);
     const data5 = await download(searchA[0].id);
