@@ -2,17 +2,16 @@ import cheerio from 'cheerio';
 import fetch from 'node-fetch';
 
 let handler = async (m, { conn, args, usedPrefix, text, command }) => {
-  if (!text) return m.reply("- 「🚀」 *أدخل نصًا بعد الأمر لاستخدام CopilotAI* *مثال :* ⟣ *.بوت* افضل انمي حتی الان ⟣ *.بوت* اكتب رمز JS");
+  if (!text) return m.reply("- 「🚀」 *أدخل نصًا بعد الأمر لاستخدام CopilotAI* *مثال :* ⟣ *.بوت* افضل انمي حتى الآن ⟣ *.بوت* اكتب رمز JS");
   
-  await m.reply("جاري المعالجة..."); // تأكد من تعريف رسالة الانتظار أو استبدلها
+  await m.reply("جاري المعالجة...");
 
   try {
-    // استخدام الدالة CleanDx
     let result = await CleanDx(text);
     await m.reply(result);
   } catch (e) {
     await m.reply('وقعت مشكلة :(');
-    console.error(e); // إضافة هذه السطر لتسجيل الخطأ في السجل للمساعدة في التحقق من سبب الخطأ
+    console.error("تفاصيل الخطأ:", e);
   }
 };
 
@@ -21,7 +20,6 @@ handler.tags = ["ai"];
 handler.command = /^(بوت)$/i;
 export default handler;
 
-/* New Line */
 async function CleanDx(your_qus) {
   let linkaiList = [];
   let linkaiId = generateRandomString(21);
@@ -36,14 +34,13 @@ async function CleanDx(your_qus) {
     "isMe": true
   });
   linkaiList.push({
-    "content": "正在思考中...",
+    "content": "جارٍ التفكير...",
     "role": "assistant",
     "nickname": "AI",
     "time": formatTime(),
     "isMe": false
   });
 
-  // تصحيح: تعديل shift ليعمل بشكل صحيح
   if (linkaiList.length > 10) {
     linkaiList.shift();
   }
@@ -69,13 +66,13 @@ async function CleanDx(your_qus) {
     });
 
     if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
+      throw new Error(`خطأ في الاستجابة من الخادم: الحالة ${response.status} - ${response.statusText}`);
     }
 
     const data = await response.text();
     return data;
   } catch (error) {
-    console.error("Error fetching AI response:", error);
+    console.error("خطأ أثناء الاتصال بالـ API:", error);
     throw error;
   }
 }
