@@ -1,26 +1,25 @@
 import cheerio from 'cheerio';
 import fetch from 'node-fetch';
-let handler = async (m, {
-    conn,
-    args,
-    usedPrefix,
-    text,
-    command
-}) => {
-if (!text) return m.reply("- 「🚀」 *أدخل نصًا بعد الامر لاستخدام CopilotAI* *مثال :* ⟣ *.بوت* افضل انمي حتی الان ⟣ *.بوت* اكتب رمز JS")
-await m.reply(wait)
-try {
-// Contoh penggunaan
-let result = await CleanDx(text)
-await m.reply(result)
-} catch (e) {
-await m.reply('وقعت مشكلة :(')
-}
-}
-handler.help = ["dx"]
-handler.tags = ["ai"]
-handler.command = /^(بوت)$/i
-export default handler
+
+let handler = async (m, { conn, args, usedPrefix, text, command }) => {
+  if (!text) return m.reply("- 「🚀」 *أدخل نصًا بعد الأمر لاستخدام CopilotAI* *مثال :* ⟣ *.بوت* افضل انمي حتی الان ⟣ *.بوت* اكتب رمز JS");
+  
+  await m.reply("جاري المعالجة..."); // تأكد من تعريف رسالة الانتظار أو استبدلها
+
+  try {
+    // استخدام الدالة CleanDx
+    let result = await CleanDx(text);
+    await m.reply(result);
+  } catch (e) {
+    await m.reply('وقعت مشكلة :(');
+    console.error(e); // إضافة هذه السطر لتسجيل الخطأ في السجل للمساعدة في التحقق من سبب الخطأ
+  }
+};
+
+handler.help = ["dx"];
+handler.tags = ["ai"];
+handler.command = /^(بوت)$/i;
+export default handler;
 
 /* New Line */
 async function CleanDx(your_qus) {
@@ -43,31 +42,42 @@ async function CleanDx(your_qus) {
     "time": formatTime(),
     "isMe": false
   });
+
+  // تصحيح: تعديل shift ليعمل بشكل صحيح
   if (linkaiList.length > 10) {
-    linkaiList = linkaiList.shift();
+    linkaiList.shift();
   }
 
- let response = await fetch(Baseurl + "v1/chat/gpt/", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "X-Forwarded-For": generateRandomIP(),
-      "Referer": Baseurl,
-      "accept": "application/json, text/plain, */*"
-    },
-    body: JSON.stringify({
-      "list": linkaiList,
-      "id": linkaiId,
-      "title": your_qus,
-      "prompt": "",
-      "temperature": 0.5,
-      "models": "0",
-      "continuous": true
-    })
-  })
-  const data = await response.text();
-    
+  try {
+    let response = await fetch(Baseurl + "v1/chat/gpt/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Forwarded-For": generateRandomIP(),
+        "Referer": Baseurl,
+        "accept": "application/json, text/plain, */*"
+      },
+      body: JSON.stringify({
+        "list": linkaiList,
+        "id": linkaiId,
+        "title": your_qus,
+        "prompt": "",
+        "temperature": 0.5,
+        "models": "0",
+        "continuous": true
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.text();
     return data;
+  } catch (error) {
+    console.error("Error fetching AI response:", error);
+    throw error;
+  }
 }
 
 function generateRandomString(length) {
