@@ -8,19 +8,19 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     conn.fakeReply(m.chat, sn, '0@s.whatsapp.net', 'مرحبا بك👋🏻, في بوت السلطان', 'status@broadcast');
 
     // Prepare the image
-    var joanimiimg = await prepareWAMessageMedia({ image: { url: 'https://telegra.ph/file/ec15edb7e6568daafc093.png' } }, { upload: conn.waUploadToServer });
+    var joanimiimg = await prepareWAMessageMedia({ image: { url: 'https://telegra.ph/file/9ea7c13e92000839267ab.jpg' } }, { upload: conn.waUploadToServer });
 
     // Create the interactive message with the image
     const interactiveMessage = {
         header: {
-            title: `*╮───────────────╭*\n\n *│• اهلا ${m.pushName}*\n *│• اسم البوت: بوت السلطان*\n *│• اسم المطور: يـوسـف الـسلطان*\n *│• وَنَجّنَا بِرَحْمَتِكَ مِنَ القوم الكافرين*\n`,
+            title: `*﹝❒═════﹝🍷﹞═════❒﹞*\n *اهلا* 👋🏻 『 ${m.pushName} 』 \n *• اسم البوت: بوت باتشيرا*\n *• اسم المطور: ابوهايف:♡*\n *• وَنَجّنَا بِرَحْمَتِكَ مِنَ القوم الكافرين*\n`
             hasMediaAttachment: true,
             imageMessage: joanimiimg.imageMessage,
         },
         body: {
-            text: ' *`افتح القائمة بواسطه الزر`🔘*\n\n*╯───────────────╰*\n\n',
+            text: ' *`افتح القائمة بواسطه الزر`🔘*\n\n*﹝❒═════﹝🍷﹞═════❒﹞*\n\n',
         },
-        footer: { text: `تم صنع هذا البوت بواسطه يوسف السلطان يمنع سب البوت والبوت يعمل فقط في المجموعات وشكرا لك علي استخدام البوت \n\n\n© Bot by Youssef Al Soltan`.trim() },
+        footer: { text: ' *`افتح القائمة بواسطه الزر`🔘*\n*اليك قائمه بقسم الاوامر وقسم المعلومات*📜\n*﹝❒═════﹝🍷﹞═════❒﹞*\n\n> *Copyright© 2024*.'`.trim() },
         nativeFlowMessage: {
             buttons: [
                 {
