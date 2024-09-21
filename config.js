@@ -7,14 +7,14 @@ import fetch from 'node-fetch';
 import axios from 'axios';
 import moment from 'moment-timezone';
 
-global.botnumber = "*『🔥┇𝑃𝑇ـ𝑃𝐴𝑇𝐶𝐻𝐸𝑅𝐴ـ𝐵𝛩𝑇』*"
+global.botnumber = "*『🍷┇𝑃𝑇ـ𝑃𝐴𝑇𝐶𝐻𝐸𝑅𝐴ـ𝐵𝛩𝑇』*"
 global.confirmCode = ""
 
-global.owner = [['967775302218', 'ابوهايف:♡', true],['966560801636', 'ابوهايف:♡', true],
+global.owner = [['967775302218', 'ابوهايف:♡', true],['966581999573', 'ارقم احتياطي', true],
 ];
 
 global.suittag = ['967775302218'];
-global.prems = [''];
+global.prems = ['966581999573'];
 
 global.packname = '☾︎ابوهايف:♡☽︎';
 global.author = 'باتشيرا';
@@ -22,7 +22,7 @@ global.wm = 'باتشيرا<ابوهايف';
 global.titulowm = '☾︎ 𝑃𝑇ـ𝑃𝐴𝑇𝐶𝐻𝐸𝑅𝐴ـ𝐵𝛩𝑇 ☽︎';
 global.titulowm2 = `☾︎  𝑃𝑇ـ𝑃𝐴𝑇𝐶𝐻𝐸𝑅𝐴ـ𝐵𝛩𝑇 ☽︎`
 global.igfg = '☾︎  𝑃𝑇ـ𝑃𝐴𝑇𝐶𝐻𝐸𝑅𝐴ـ𝐵𝛩𝑇 ☽︎';
-global.wait = '*[🍷] انتظر جاري التحميل* ...\n\n*https://chat.whatsapp.com/I3bSqLaH50aGaPTNdn8Rbm*';
+global.wait = '*[🍷] انتظر جاري التحميل* ...\n\n*https://chat.whatsapp.com/KyvbRcGJDl3IoUewLZBbkO*';
 global.imagen1 = fs.readFileSync('./Menu2.jpg');
 global.imagen2 = fs.readFileSync('./Menu2.jpg');
 global.imagen3 = fs.readFileSync('./Menu2.jpg');
@@ -44,11 +44,11 @@ global.tiempo = d.toLocaleString('ar-US', {hour: 'numeric', minute: 'numeric', s
 global.wm2 = `${dia} ${fecha}\n☾︎𝑃𝑇ـ𝑃𝐴𝑇𝐶𝐻𝐸𝑅𝐴ـ𝐵𝛩𝑇☽︎`;
 global.gt = '☾︎𝑃𝑇ـ𝑃𝐴𝑇𝐶𝐻𝐸𝑅𝐴ـ𝐵𝛩𝑇☽︎';
 global.mysticbot = '☾︎𝑃𝑇ـ𝑃𝐴𝑇𝐶𝐻𝐸𝑅𝐴ـ𝐵𝛩𝑇☽︎';
-global.md = 'https://chat.whatsapp.com/I3bSqLaH50aGaPTNdn8Rbm';
-global.mysticbot = 'https://chat.whatsapp.com/I3bSqLaH50aGaPTNdn8Rbm';
-global.waitt = '*[🍷] انتظر جاري التحميل* ...\n\nhttps://chat.whatsapp.com/I3bSqLaH50aGaPTNdn8Rbm';
-global.waittt = '*[🍷] انتظر جاري التحميل* ...\n\nhttps://chat.whatsapp.com/I3bSqLaH50aGaPTNdn8Rbm';
-global.waitttt = '*[🍷] انتظر جاري التحميل* ...\n\nhttps://chat.whatsapp.com/I3bSqLaH50aGaPTNdn8Rbm';
+global.md = 'https://chat.whatsapp.com/KyvbRcGJDl3IoUewLZBbkO';
+global.mysticbot = 'https://chat.whatsapp.com/KyvbRcGJDl3IoUewLZBbkO';
+global.waitt = '*[🍷] انتظر جاري التحميل* ...\n\nhttps://chat.whatsapp.com/KyvbRcGJDl3IoUewLZBbkO';
+global.waittt = '*[🍷] انتظر جاري التحميل* ...\n\nhttps://chat.whatsapp.com/KyvbRcGJDl3IoUewLZBbkO';
+global.waitttt = '*[🍷] انتظر جاري التحميل* ...\n\nhttps://chat.whatsapp.com/KyvbRcGJDl3IoUewLZBbkO';
 global.nomorown = '967775302218';
 global.pdoc = ['application/vnd.openxmlformats-officedocument.presentationml.presentation', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.ms-excel', 'application/msword', 'application/pdf', 'text/rtf'];
 global.cmenut = '❖––––––『';
