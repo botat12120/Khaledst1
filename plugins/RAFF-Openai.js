@@ -1,105 +1,50 @@
-import cheerio from 'cheerio';
-import fetch from 'node-fetch';
+import fetch from "node-fetch"
 
-let handler = async (m, { conn, args, usedPrefix, text, command }) => {
-  if (!text) return m.reply("- 「🚀」 *أدخل نصًا بعد الأمر لاستخدام CopilotAI* *مثال :* ⟣ *.بوت* افضل انمي حتى الآن ⟣ *.بوت* اكتب رمز JS");
-  
-  await m.reply("جاري المعالجة...");
-
-  try {
-    let result = await CleanDx(text);
-    await m.reply(result);
-  } catch (e) {
-    await m.reply('وقعت مشكلة :(');
-    console.error("تفاصيل الخطأ:", e);
-  }
-};
-
-handler.help = ["dx"];
-handler.tags = ["ai"];
-handler.command = /^(بوت)$/i;
-export default handler;
-
-async function CleanDx(your_qus) {
-  let linkaiList = [];
-  let linkaiId = generateRandomString(21);
-  let Baseurl = "https://vipcleandx.xyz/";
-
-  console.log(formatTime());
-  linkaiList.push({
-    "content": your_qus,
-    "role": "user",
-    "nickname": "",
-    "time": formatTime(),
-    "isMe": true
-  });
-  linkaiList.push({
-    "content": "جارٍ التفكير...",
-    "role": "assistant",
-    "nickname": "AI",
-    "time": formatTime(),
-    "isMe": false
-  });
-
-  if (linkaiList.length > 10) {
-    linkaiList.shift();
-  }
-
-  try {
-    let response = await fetch(Baseurl + "v1/chat/gpt/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "X-Forwarded-For": generateRandomIP(),
-        "Referer": Baseurl,
-        "accept": "application/json, text/plain, */*"
-      },
-      body: JSON.stringify({
-        "list": linkaiList,
-        "id": linkaiId,
-        "title": your_qus,
-        "prompt": "",
-        "temperature": 0.5,
-        "models": "0",
-        "continuous": true
-      })
-    });
-
-    if (!response.ok) {
-      throw new Error(`خطأ في الاستجابة من الخادم: الحالة ${response.status} - ${response.statusText}`);
+let handler = async (m, {
+    conn,
+    args,
+    usedPrefix,
+    command
+}) => {
+    let text
+    if (args.length >= 1) {
+        text = args.slice(0).join(" ")
+    } else if (m.quoted && m.quoted.text) {
+        text = m.quoted.text
+    } else throw "*〄↞┇الذكاء الاصطناعي اسأله اي سؤال تريده مثال :┇*\n\n*┇.بوت متى توفي النبي صلى الله عليه وسلم┇◇*"
+    await m.reply(wait)
+    const messages = [
+    { role: 'system', content: 'You are a helpful assistant.' },
+    { role: 'user', content: text },
+  ];
+    try {
+        let res = await chatWithGPT(messages)
+        await m.reply(res.choices[0].message.content)
+    } catch (e) {
+        await m.reply('error')
     }
-
-    const data = await response.text();
-    return data;
-  } catch (error) {
-    console.error("خطأ أثناء الاتصال بالـ API:", error);
-    throw error;
-  }
 }
+handler.help = ["بوت"]
+handler.tags = ["ai"];
+handler.command = /^(بوت)$/i
 
-function generateRandomString(length) {
-  const characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-  let randomString = '';
-  for (let i = 0; i < length; i++) {
-    const randomIndex = Math.floor(Math.random() * characters.length);
-    randomString += characters.charAt(randomIndex);
-  }
-  return randomString;
-}
+export default handler
 
-function generateRandomIP() {
-  const ipParts = [];
-  for (let i = 0; i < 4; i++) {
-    const randomPart = Math.floor(Math.random() * 256);
-    ipParts.push(randomPart);
-  }
-  return ipParts.join('.');
-}
+/* New Line */
+async function chatWithGPT(messages) {
+    try {
+        const response = await fetch("https://chatbot-ji1z.onrender.com/chatbot-ji1z", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ messages }),
+        });
 
-function formatTime() {
-  const currentDate = new Date();
-  const hours = currentDate.getHours().toString().padStart(2, '0');
-  const minutes = currentDate.getMinutes().toString().padStart(2, '0');
-  const seconds = currentDate.getSeconds().toString().padStart(2, '0');
-  return `${hours}:${minutes}:${seconds}`;
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("Error fetching data:", error);
+        throw error;
+    }
 }
