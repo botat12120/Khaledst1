@@ -5,7 +5,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 
     // Send fake reply message with serial number
     const sn = '*جـاًر تـجـهيز الـقـائـمـه🛰️...*'; // replace with the actual serial number
-    conn.fakeReply(m.chat, sn, '0@s.whatsapp.net', 'مرحبا بك👋🏻, في بوت السلطان', 'status@broadcast');
+    conn.fakeReply(m.chat, sn, '0@s.whatsapp.net', 'مرحبا بك👋🏻, في بوت باتشيرا', 'status@broadcast');
 
     // Prepare the image
     var joanimiimg = await prepareWAMessageMedia({ image: { url: 'https://telegra.ph/file/9ea7c13e92000839267ab.jpg' } }, { upload: conn.waUploadToServer });
@@ -13,24 +13,24 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     // Create the interactive message with the image
     const interactiveMessage = {
         header: {
-            title: `*﹝❒═════﹝🍷﹞═════❒﹞*\n *اهلا* 👋🏻 『 ${m.pushName} 』 \n *• اسم البوت: بوت باتشيرا*\n *• اسم المطور: ابوهايف:♡*\n *• وَنَجّنَا بِرَحْمَتِكَ مِنَ القوم الكافرين*\n`
+            title: `*﹝❒═════﹝🍷﹞═════❒﹞*\n\n *ارحبوو ¦🍷 ${m.pushName}*\n *¦🍷 اسم البوت: بوت باتشيرا*\n *اسم المطور: ابوهايف:♡*\n *¦وَنَجّنَا بِرَحْمَتِكَ مِنَ القوم الكافرين*\n`,
             hasMediaAttachment: true,
             imageMessage: joanimiimg.imageMessage,
         },
         body: {
             text: ' *`افتح القائمة بواسطه الزر`🔘*\n\n*﹝❒═════﹝🍷﹞═════❒﹞*\n\n',
         },
-        footer: { text: ' *`افتح القائمة بواسطه الزر`🔘*\n*اليك قائمه بقسم الاوامر وقسم المعلومات*📜\n*﹝❒═════﹝🍷﹞═════❒﹞*\n\n> *Copyright© 2024*.'`.trim() },
+        footer: { text: `تم صنع هذا البوت بواسطه ابوهايف:♡ يمنع سب البوت والبوت يعمل فقط في المجموعات وشكرا لك علي استخدام البوت \n\n\n© Bot by ابوهايف بكل مكان`.trim() },
         nativeFlowMessage: {
             buttons: [
                 {
                     name: 'single_select',
                     buttonParamsJson: JSON.stringify({
-                        title: '💫 اخـتر القـسـم 💫',
+                        title: '🍷اخـتر القـسـم🍷',
                         sections: [
                             {
                                 title: 'قسم الاوامر',
-                                highlight_label: 'بوت السلطان',
+                                highlight_label: 'ابوهايف:♡',
                                 rows: [
                                     {
                                         header: 'يعطيك قسم اوامر الجروب🗣️',
@@ -57,18 +57,6 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
                                         id: '.قسم-التحويل'
                                     },
                                     {
-                                        header: 'يعطيك قسم اوامر الفعاليات🧸',
-                                        title: 'قـسـم الفـعالـيات🧩✬⃝',
-                                        description: '',
-                                        id: '.قسم-الفعاليات'
-                                    },
-                                    {
-                                        header: 'يعطيك قسم اوامر الذكاء الاصطناعي 🌐',
-                                        title: 'قـسـم الذكاء الاصطناعي🤖✬⃝',
-                                        description: '',
-                                        id: '.قسم-الذكاء'
-                                    },
-                                    {
                                         header: 'يعطيك قسم اوامر الدين والأسلام👳🏻‍♂️',
                                         title: 'قـسـم الـديـني✨✬⃝',
                                         description: '',
@@ -84,13 +72,13 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
                                         header: 'يعطيك قسم اوامر الألقاب🖊️',
                                         title: ' قـسـم الألقاب📕✬⃝',
                                         description: '',
-                                        id: '.قسم-الألقاب'
+                                        id: '.القاب-الاعضاء'
                                     },
                                     {
-                                        header: 'يعطيك قـسم الالعاب🕹️',
-                                        title: ' قـسم الالعاب🧩✬⃝',
+                                        header: '🍷يعطيك كل الاوامر🍷',
+                                        title: '🍷كل الاوامر🍷',
                                         description: '',
-                                        id: '.قسم-الالعاب'
+                                        id: '.كل-الاوامر'
                                     }
                                 ]
                             }
@@ -102,8 +90,8 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
                     name: "cta_url",
                     buttonParamsJson: JSON.stringify({
                         display_text: "قنـاة الـواتـساب📣",
-                        url: "https://whatsapp.com/channel/0029VaL2bnW0rGiPZq8B5S2M",
-                        merchant_url: "https://whatsapp.com/channel/0029VaL2bnW0rGiPZq8B5S2M"
+                        url: "https://whatsapp.com/channel/0029VafG0N8I1rclRCFLaL0g",
+                        merchant_url: "https://whatsapp.com/channel/0029VafG0N8I1rclRCFLaL0g"
                     })
                 },
                 {
@@ -121,7 +109,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
                         sections: [
                             {
                                 title: '📜معلومات عن البوت📜',
-                                highlight_label: 'By Youssef Al Soltan',
+                                highlight_label: 'By🍷ابوهايف:♡',
                                 rows: [
                                     {
                                         header: 'صانع البوت👤',
@@ -140,18 +128,6 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
                                         title: 'طـلـب ابـلاغ📨',
                                         description: '',
                                         id: '.بلاغ'
-                                        },
-                                       {
-                                        header: 'روابط دعم البوت✔️',
-                                        title: 'الـروابـط💥',
-                                        description: '',
-                                        id: '.قمرين'
-                                    },
-                                    {
-                                        header: 'كيفيه ادخال البوت لجروبك🔮',
-                                        title: 'عـروض البـوت❓',
-                                        description: '',
-                                        id: '.عروض'
                                     },
                                     {
                                         header: 'تقيم البوت⭐',
