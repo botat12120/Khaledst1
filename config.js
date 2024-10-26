@@ -10,14 +10,14 @@ import moment from 'moment-timezone';
 global.botnumber = "*『🍷┇𝑃𝑇ـ𝑃𝐴𝑇𝐶𝐻𝐸𝑅𝐴ـ𝐵𝛩𝑇』*"
 global.confirmCode = ""
 
-global.owner = [['967775302218', 'ابوهايف:♡', true],['966581999573', 'ارقم احتياطي', true],
+global.owner = [['9661609722', 'فارس الفا', true],['966553211410', 'عمو هيثم', true],
 ];
 
-global.suittag = ['967775302218'];
-global.prems = ['966581999573'];
+global.suittag = ['966553211410'];
+global.prems = ['966551609722'];
 
-global.packname = '☾︎ابوهايف:♡☽︎';
-global.author = 'باتشيرا';
+global.packname = 'فارس الفا';
+global.author = 'هيثم';
 global.wm = 'باتشيرا<ابوهايف';
 global.titulowm = '☾︎ 𝑃𝑇ـ𝑃𝐴𝑇𝐶𝐻𝐸𝑅𝐴ـ𝐵𝛩𝑇 ☽︎';
 global.titulowm2 = `☾︎  𝑃𝑇ـ𝑃𝐴𝑇𝐶𝐻𝐸𝑅𝐴ـ𝐵𝛩𝑇 ☽︎`
